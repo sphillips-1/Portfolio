@@ -1,1 +1,13 @@
 /.vs
+/Portfolio/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+/Portfolio/obj/Debug/netcoreapp3.1/Portfolio.AssemblyInfo.cs
+/Portfolio/obj/Debug/netcoreapp3.1/Portfolio.AssemblyInfoInputs.cache
+/Portfolio/obj/Debug/netcoreapp3.1/Portfolio.RazorAssemblyInfo.cache
+/Portfolio/obj/Debug/netcoreapp3.1/Portfolio.RazorAssemblyInfo.cs
+/Portfolio/obj/Debug/netcoreapp3.1/Portfolio.assets.cache
+/Portfolio/obj/Debug/netcoreapp3.1/Portfolio.csprojAssemblyReference.cache
+/Portfolio/obj/Portfolio.csproj.nuget.dgspec.json
+/Portfolio/obj/Portfolio.csproj.nuget.g.props
+/Portfolio/obj/Portfolio.csproj.nuget.g.targets
+/Portfolio/obj/project.assets.json
+/Portfolio/obj/project.nuget.cache
