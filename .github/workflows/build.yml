@@ -36,7 +36,7 @@ jobs:
     - name: 'Deploy'
       uses: azure/webapps-deploy@v1
       with: 
-        app-name: sphillips-demo # Replace with your app name
+        app-name: sphillips-portfolio # Replace with your app name
         publish-profile: ${{ secrets.PUBLISH_PROFILE }}
         package: './Portfolio' 
 
