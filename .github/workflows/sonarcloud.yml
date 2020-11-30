@@ -1,0 +1,37 @@
+name: SonarCloud Analysis
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  build:
+    name: Build
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v1.4.3
+        with:
+          # The Java version to make available on the path. Takes a whole or semver Java version, or 1.x syntax (e.g. 1.8 => Java 8.x). Early access versions can be specified in the form of e.g. 14-ea, 14.0.0-ea, or 14.0.0-ea.28
+          java-version: 11
+
+      - name: Install sonarscanner
+        run: dotnet tool install --global dotnet-sonarscanner
+
+      - name: Start sonarscanner
+        run: dotnet sonarscanner begin /k:"sphillips-1_demo" /d:sonar.host.url=https://sonarcloud.io /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /o:"sphillips-1"
+      
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Build with sonarscanner
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Sonarscanner end 
+        run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
